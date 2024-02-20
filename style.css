@@ -2,11 +2,15 @@ body {
   margin: 0;
   background-color: #f9f9f9;
 }
-
-.head-wrapper {
-  overflow: hidden;
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100000; /* Ensure it's above other content */
   background-color: #ffffff;
+}
+.head-wrapper {
   padding: 1rem;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   border-bottom: 0.2rem solid #e7e7e7;
@@ -67,38 +71,53 @@ body {
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .post-container {
   justify-content: flex-end;
-  align-items: start;
+  align-items: center;
   display: flex;
   flex-direction: column;
   padding: 10px 43px 14px;
-  min-width: 40%;
+  min-width: 60%;
+}
+
+.posts-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack .post-container elements vertically */
+  padding: 10px;
 }
 
 .post-header {
   background-color: #fff;
   margin-top: 23px;
   border: 1px solid #d9d9d9;
-  min-width: 462px;
+  min-width: 455px;
   height: 46px;
 }
 .post-content {
-  background-image: url(images/oye.png);
-  background-size: cover;
   border-right: 1px solid #d9d9d9;
   border-left: 1px solid #d9d9d9;
-  min-width: 462px;
-  height: 461px;
+  min-width: 455px;
+  height: 557px;
 }
+#oye1 {
+  background-image: url(images/oye.png);
+  background-size: cover;
+}
+#oye2 {
+  background-image: url(images/oyer.png);
+  background-size: cover;
+}
+
 .post-desc {
   border-radius: 2px;
   border: 1px solid #d9d9d9;
   background-color: #fff;
-  min-width: 462px;
-  height: 131px;
+  width: 455px;
+  height: 210px;
 }
 
 .post-user-info {
@@ -127,9 +146,42 @@ body {
 }
 
 .stories {
-  padding: 10px 0px 14px;
+  padding: 65px 50px 14px;
   margin-top: 23px;
-  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  width: 40%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .stories {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    order: 2;
+    padding: 0;
+    margin-top: 20px;
+    padding-left: 20%;
+  }
+
+  .posts-wrapper {
+    order: 1;
+    width: 100%;
+  }
+  .post-container {
+    padding: 0px 50px 14px;
+  }
 }
 
 .user-stories {
@@ -188,5 +240,86 @@ body {
 .p-user-info {
   font-family: Arial, Helvetica, sans-serif;
   font-size: x-small;
+  color: #8e8e8e;
+}
+
+.post-actions {
+  display: flex;
+  padding: 15px 3px 0px 15px;
+  justify-content: space-between;
+}
+
+.post-icons img {
+  height: 20px;
+  margin-right: 15px;
+  width: 20px;
+}
+
+.bookmark img {
+  height: 20px;
+  width: 15px;
+  margin-right: 15px;
+}
+
+.post-details {
+  padding: 0 10px 10px 10px;
+}
+
+.post-details p {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.hashtag {
+  color: #24669b;
+}
+
+.post-likes {
+  font-size: 15px;
+}
+
+.username {
+  font-size: 16px;
+  margin-top: 3px;
+}
+
+hr {
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+}
+
+.post-hr {
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+  margin-bottom: -20px;
+}
+
+.comment {
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.posted-time {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  color: #8e8e8e;
+}
+.stories-h {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
   color: #8e8e8e;
 }
