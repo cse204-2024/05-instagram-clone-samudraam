@@ -447,3 +447,13 @@ button:hover {
 ::placeholder {
   text-align: center;
 }
+
+#searchbar:hover,
+#input-search:hover {
+  background-color: #8e8e8e;
+}
+
+#input-search {
+  height: auto;
+  width: auto;
+}
